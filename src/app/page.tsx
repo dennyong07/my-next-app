@@ -1,3 +1,4 @@
+import Link from 'next/link';
 
 async function fetchPosts(Id: string) {
   const response = await fetch('https://jsonplaceholder.typicode.com/' + Id);
@@ -15,7 +16,8 @@ export default async function Home() {
         <div key={post.id} className="bg-white p-6 rounded-lg shadow">
           <h1 className="text-xl font-bold mb-2">{post.title}</h1>
           <p className="">{post.body}</p>
-          <p className="text-gray-500">User ID: {post.userId}</p>
+
+          <Link className="text-blue-500 hover:underline" href={`/posts/${post.id}`}>Read More</Link>
         </div>
       ))}
     </div>
